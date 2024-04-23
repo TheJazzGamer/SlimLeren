@@ -78,6 +78,8 @@ function returnToMenu() {
     words = [];
     document.getElementById('results').style.display = 'none';
     document.getElementById('menu').style.display = 'block';
+    document.getElementById('word').textContent = ''; // Verwijder het woord van de vorige flashcard
+    document.getElementById('translation').textContent = ''; // Verwijder de vertaling van de vorige flashcard
 }
 
 function displayResults() {
