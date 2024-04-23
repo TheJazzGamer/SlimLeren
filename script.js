@@ -58,12 +58,12 @@ function flipCard() {
 // Plaats de bijgewerkte markCorrect() en markIncorrect() functies op de juiste plaats in je script
 function markCorrect() {
     correctWords.push(words[currentIndex]);
-    showNextFlashcard();
+    setTimeout(showNextFlashcard, 500); // Voeg een vertraging van 500 milliseconden toe
 }
 
 function markIncorrect() {
     incorrectWords.push(words[currentIndex]);
-    showNextFlashcard();
+    setTimeout(showNextFlashcard, 500); // Voeg een vertraging van 500 milliseconden toe
 }
 
 // Voeg de nieuwe showNextFlashcard() functie toe
