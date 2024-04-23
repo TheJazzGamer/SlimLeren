@@ -50,41 +50,20 @@ function flipCard() {
     const word = document.getElementById('word').textContent;
     const translation = getTranslation(word);
     document.getElementById('translation').textContent = translation;
-
-    // Toon feedbackknoppen
-    document.getElementById('feedback').style.display = 'flex'; // Hier gebruik ik 'flex' om de knoppen te tonen, maar je kunt 'block' of een andere geschikte weergavewaarde gebruiken
+    document.getElementById('feedback').style.display = 'block';
 }
 
-// Plaats de bijgewerkte markCorrect() en markIncorrect() functies op de juiste plaats in je script
 function markCorrect() {
     correctWords.push(words[currentIndex]);
-    setTimeout(showNextFlashcard, 500); // Voeg een vertraging van 500 milliseconden toe
+    currentIndex++;
+    showNextFlashcard();
 }
 
 function markIncorrect() {
     incorrectWords.push(words[currentIndex]);
-    setTimeout(showNextFlashcard, 500); // Voeg een vertraging van 500 milliseconden toe
-}
-
-// Voeg de nieuwe showNextFlashcard() functie toe
-function showNextFlashcard() {
     currentIndex++;
-    if (currentIndex < words.length) {
-        const word = words[currentIndex];
-        document.getElementById('word').textContent = word;
-        document.getElementById('translation').textContent = '';
-        document.getElementById('feedback').style.display = 'none';
-    } else {
-        // Alle woorden gevraagd, toon resultaten
-        document.getElementById('flashcard-container').style.display = 'none';
-        document.getElementById('results').style.display = 'block';
-        displayResults();
-    }
+    showNextFlashcard();
 }
-
-// Voeg een event listener toe aan de flashcard om flipCard() aan te roepen wanneer erop wordt geklikt
-document.getElementById('flashcard').addEventListener('click', flipCard);
-
 
 function getTranslation(word) {
     // Hier zou je een vertaling kunnen opzoeken in een woordenboek of API
@@ -100,9 +79,8 @@ function returnToMenu() {
     words = [];
     document.getElementById('results').style.display = 'none';
     document.getElementById('menu').style.display = 'block';
-    document.getElementById('word').textContent = ''; // Verwijder het woord van de vorige flashcard
-    document.getElementById('translation').textContent = ''; // Verwijder de vertaling van de vorige flashcard
-    document.getElementById('feedback').style.display = 'none'; // Verberg feedbackknoppen
+    document.getElementById('word').textContent = '';
+    document.getElementById('translation').textContent = '';
 }
 
 function displayResults() {
