@@ -13,7 +13,9 @@ body {
 #flashcard {
     border: 1px solid #ccc;
     padding: 20px;
-    margin-top: 20px;
+    margin: 0 auto; /* Center flashcard horizontally */
+    text-align: center;
+    cursor: pointer; /* Change cursor to pointer on hover */
 }
 
 #feedback {
