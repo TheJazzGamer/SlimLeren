@@ -47,9 +47,9 @@ function showNextFlashcard() {
 }
 
 function flipCard() {
-    const translation = getTranslation(words[currentIndex]);
+    const word = document.getElementById('word').textContent;
+    const translation = getTranslation(word);
     document.getElementById('translation').textContent = translation;
-    document.getElementById('feedback').style.display = 'block';
 }
 
 function markCorrect() {
@@ -68,6 +68,16 @@ function getTranslation(word) {
     // Hier zou je een vertaling kunnen opzoeken in een woordenboek of API
     // Voor nu retourneren we hetzelfde woord
     return word;
+}
+
+function returnToMenu() {
+    currentIndex = 0;
+    correctWords = [];
+    incorrectWords = [];
+    selectedLanguages = [];
+    words = [];
+    document.getElementById('results').style.display = 'none';
+    document.getElementById('menu').style.display = 'block';
 }
 
 function displayResults() {
