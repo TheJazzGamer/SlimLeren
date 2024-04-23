@@ -50,6 +50,7 @@ function flipCard() {
     const word = document.getElementById('word').textContent;
     const translation = getTranslation(word);
     document.getElementById('translation').textContent = translation;
+    document.getElementById('feedback').style.display = 'block'; // Zorg ervoor dat de feedbackknoppen verschijnen
 }
 
 function markCorrect() {
