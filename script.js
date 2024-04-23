@@ -55,17 +55,36 @@ function flipCard() {
     document.getElementById('feedback').style.display = 'flex'; // Hier gebruik ik 'flex' om de knoppen te tonen, maar je kunt 'block' of een andere geschikte weergavewaarde gebruiken
 }
 
+// Plaats de bijgewerkte markCorrect() en markIncorrect() functies op de juiste plaats in je script
 function markCorrect() {
     correctWords.push(words[currentIndex]);
-    currentIndex++;
     showNextFlashcard();
 }
 
 function markIncorrect() {
     incorrectWords.push(words[currentIndex]);
-    currentIndex++;
     showNextFlashcard();
 }
+
+// Voeg de nieuwe showNextFlashcard() functie toe
+function showNextFlashcard() {
+    currentIndex++;
+    if (currentIndex < words.length) {
+        const word = words[currentIndex];
+        document.getElementById('word').textContent = word;
+        document.getElementById('translation').textContent = '';
+        document.getElementById('feedback').style.display = 'none';
+    } else {
+        // Alle woorden gevraagd, toon resultaten
+        document.getElementById('flashcard-container').style.display = 'none';
+        document.getElementById('results').style.display = 'block';
+        displayResults();
+    }
+}
+
+// Voeg een event listener toe aan de flashcard om flipCard() aan te roepen wanneer erop wordt geklikt
+document.getElementById('flashcard').addEventListener('click', flipCard);
+
 
 function getTranslation(word) {
     // Hier zou je een vertaling kunnen opzoeken in een woordenboek of API
