@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#menu {
+    display: block;
+}
+
+#flashcard-container {
+    display: none;
+}
+
+#flashcard {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#feedback {
+    display: none;
+}
+
+#results {
+    display: none;
+}
+
+#results ul {
+    list-style-type: none;
+}
